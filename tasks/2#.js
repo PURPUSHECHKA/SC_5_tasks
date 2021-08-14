@@ -28,27 +28,35 @@ https://codewars.com/kata/coding-meetup-number-5-higher-order-functions-series-p
 
 // console.log(countLanguages(list1)) // { C: 2, JavaScript: 1, Ruby: 1 }
 
-function countLanguages2(newList) {
-  // let count = 0
-  // return newList.reduce((acc, obj, i) => {
-  //   count += obj.age
-  //  if (i === newList.length - 1) {
-  //    return {...acc, age: count / newList.length}
-  //  }
-  //  return acc
-  // }, {})
-  // const sum = newList.reduce((acc, rec) => {
-  //   console.log(`Acc: ${acc}, Rec: ${rec}`)
-  //   return { ...acc, age: acc.age + rec.age }
-  // }, {age: 0})
-  // return {age: sum.age / newList.length}
-  // const sum = newList.reduce((acc, obj) => acc + obj.age, 0)
-  // return {age: sum / newList.length}
+/* Доп задача - подсчет среднего возраста с выводом в объект вида {age : <middle age>} */
+function middleAge(newList) {
+   let count = 0
+   return newList.reduce((acc, obj, i) => {
+     count += obj.age
+    if (i === newList.length - 1) {
+      return {...acc, age: count / newList.length}
+    }
+    return acc
+   }, {})
 }
-// console.log(countLanguages2(list1)) // {age : <middle age>}
+// console.log(middleAge(list1)) // {age : <middle age>}
+
+function middleAge2(newList) {
+  const sum = newList.reduce((acc, rec) => {
+    console.log(`Acc: ${acc}, Rec: ${rec}`)
+    return { ...acc, age: acc.age + rec.age }
+  }, {age: 0})
+  return {age: sum.age / newList.length}
+}
+// console.log(middleAge2(list1)) // {age : <middle age>}
+
+function middleAge3(newList) {
+ const sum = newList.reduce((acc, obj) => acc + obj.age, 0)
+ return {age: sum / newList.length}
+}
+// console.log(middleAge3(list1)) // {age : <middle age>}
 
 /* 
-
 https://www.codewars.com/kata/58287977ef8d4451f90001a0/train/javascript
 
 Вам будет предоставлен массив объектов (ассоциативные массивы в PHP), представляющих данные о разработчиках, которые
